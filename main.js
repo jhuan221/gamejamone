@@ -47,12 +47,19 @@ function update() {
   if (cord.pin.y > 98){
     end();
   }
+  let nextPin;
   // deleting dot that is off the screen
   remove(pins, (p) => { 
     p.y += scr;
-    box(p,3);
+    if (box(p, 3).isColliding.rect.black && p !== cord.pin){
+        nextPin = p;
+    }
     return p.y > 102;
   });
+  if (nextPin != null){
+    cord.pin = nextPin;
+    cord.length = cordLength;
+  }
   // add pin and scroll down
   nextPinDist -= scr;
   while (nextPinDist < 0){
