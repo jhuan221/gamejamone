@@ -1,10 +1,7 @@
-title = "square move";
+title = "collect";
 
 description = `
-testing square 
-movement 
-
-and dots moving
+press [move]
 `;
 
 characters = [];
